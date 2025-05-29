@@ -5,14 +5,14 @@ pipeline {
         stage('Verificar cambios en app.py') {
             steps {
                 script {
-                    def cambios = sh(script: "git diff --name-only HEAD~1 HEAD", returnStdout: true).trim()
+                    def cambios = sh(script: "git show --name-only --pretty=\"\" HEAD", returnStdout: true).trim()
+                    echo "Archivos modificados en el último commit:\n${cambios}"
                     if (cambios.contains('app.py')) {
                         echo "✅ Se detectaron cambios en app.py"
                         currentBuild.description = "Cambios en app.py"
                     } else {
                         echo "ℹ️ No hay cambios en app.py. Terminando ejecución."
                         currentBuild.result = 'SUCCESS'
-                        // Cancelar el resto del pipeline:
                         error("No hay cambios en app.py")
                     }
                 }
