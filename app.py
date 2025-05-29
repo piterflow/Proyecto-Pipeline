@@ -12,7 +12,7 @@ def saludo():
 
 def saludo2():
    
-    return '<h2>Esto es una segunda prueba de Slack</h2>'
+    return '<h2>Prueba Slack: Modificación app.py</h2>'
 
 if __name__ == '__main__':
    
