@@ -10,6 +10,9 @@ def saludo():
    
     return '<h1>Saludos, Slack fue exitoso</h1>'
 
+def saludo2():
+   
+    return '<h2>Esto es una segunda prueba de Slack</h2>'
 
 if __name__ == '__main__':
    
